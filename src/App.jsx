@@ -1,7 +1,7 @@
 import Sidebar from "./components/Sidebar";
 import Content from "./components/Content";
 import { Data } from "./components/Data";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 const App = () => {
     const [ tab, setTab ] = useState(Data);
     const [index, setIndex] = useState(0);
