@@ -1,0 +1,198 @@
+// typography
+@font-face {
+    font-family: pro;
+    src: url(./fonts/LEMONMILK-Medium.otf);
+}
+@font-face {
+    font-family: lite;
+    src: url(./fonts/LEMONMILK-Regular.otf);
+}
+// variables
+
+// properties
+@property --color1 {
+    syntax: "<color>";
+    inherit: true;
+    initial-value: blue;
+}
+@property --color2 {
+    syntax: "<color>";
+    inherit: true;
+    initial-value: red;
+}
+// mixins for the project
+@import './mixin';
+// root style
+:root {
+    // color
+    --dark: #040b29;
+    --ldark: #041746;
+    --pink: #f34dc3;
+}
+// *
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    resize: none;
+}
+// html 
+html {
+    font-family: lite;
+    scroll-behavior: smooth;
+}
+body {
+    height: 100vh;
+    background-color: var(--dark);
+}
+#root {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .m-t {
+        font-family: pro;
+        color: var(--pink);
+    }
+}
+div:not(.container),
+section {
+    padding: 20px;
+}
+button {
+    cursor: pointer;
+}
+.container {
+    width: 90%;
+    min-height: 200px;
+    max-width: 800px;
+    // @include border;
+    @include b-rad(light);
+    @include d-s(flex);
+    background-color: var(--ldark);
+    align-items: stretch;
+    overflow: hidden;
+    .sidebar {
+        width: 40%;
+        min-height: 200px;
+        // background-color: black;
+        // @include border;
+        @include d-s(flex);
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+        .btn {
+            display: block;
+            border: none;
+            outline: none;
+            padding: 0 28px;
+            height: 28px;
+            @include b-rad(med);
+            cursor: pointer;
+            transition: .8s;
+            font-family: lite;
+        }
+    }
+    .content {
+        width: 60%;
+        min-height: 300px;
+        // background-color: orange;
+        // @include border;
+        color: var(--pink);
+        overflow: hidden;
+        .job {
+            font-family: pro;
+            transition: .1s;
+        }
+        .xp {
+            font-family: lite;
+            color: var(--pink);
+            transition: .1s .2s;
+            display: block;
+        }
+        .duration {
+            padding: 5px 10px;
+            transition: .1s .4s;
+            p {
+                display: inline-block;
+               &:not(:first-child) {
+                   margin-left: 10px;
+               }
+            }
+        }
+        .operation {
+            // background-color: white;
+            padding: 10px;
+            transition: .1s .2s;
+            p {
+                font-family: cursive;
+            }
+        }
+        button {
+            --color1: blue;
+            --color2: red;
+            padding: 0 24px;
+            height: 25px;
+            border: solid 1px var(--pink);
+            background-color: transparent;
+            border-radius: 30px;
+            color: var(--pink);
+            display: block;
+            margin: 20px auto;
+            font-family: pro;
+            // transition: --color1 3s, --color2  3s;
+            transition: .3s;
+            &:hover {
+                // --color1: var(--pink);
+                // --color1: orange;
+                --color2: var(--pink);
+                color: white;
+            }
+        }
+    }
+}
+@media screen and (max-width: 590px) {
+    .container {
+        // background-color: white;
+        flex-direction: column;
+        .sidebar,
+        .content {
+            width: 100%;
+        }
+        .sidebar {
+            flex-direction: row;
+            // background-color: white;
+            min-height: min-content;
+            .btn {
+                @include d-s(flex);
+                gap: 2px;
+                padding: 0 10px;
+                width: calc(100% / 3);
+            }
+        }
+        .content {
+            // background-color: white;
+            .job {
+                font-size: 6vw;
+            }
+            .xp {
+               color: white;
+            }
+            .duration {
+                font-size: 11px;
+                p {
+                    font-size: 10px;
+                }
+            }
+            .operation {
+                p {
+                    font-size: 15px;
+                }
+            }
+            button {
+                background-color: var(--dark);
+            }
+        }
+    }
+}

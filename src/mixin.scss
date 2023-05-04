@@ -1,0 +1,21 @@
+@mixin border {
+    border: solid 2px black;
+}
+@mixin b-rad($rad) {
+    @if $rad == "light" {
+        border-radius: 10px;
+    }@else if $rad == "med" {
+        border-radius: 30px;
+    }@else if $rad == half {
+        border-radius: 50%;
+    }@else {
+        border-radius: $rad;
+    }
+}
+@mixin d-s($rad) {
+    @if $rad == flex {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
