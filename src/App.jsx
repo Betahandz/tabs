@@ -13,21 +13,22 @@ const App = () => {
             setLoading(false);
         }, 500);
     }
-    const handleClick = id => {
+
+    const changeTab = id => {
+        changeLoading();
         setTab(prevTab => {
             return prevTab.map((item, index) => {
                 item.id === id && setIndex(index);
                 return item.id === id ? {...item, show: true} : {...item, show: false}
             })
-            
         })
-        changeLoading();
     }
+    
     return(
         <>
             <h1 className="m-t">Experiences</h1>
             <div className="container">
-                <Sidebar data={tab} handleClick={handleClick}/>
+                <Sidebar data={tab} changeTab={changeTab}/>
                 <Content data={tab[index]} loading={loading}/>
             </div>
         </>

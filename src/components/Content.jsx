@@ -1,3 +1,5 @@
+import { AiFillBug } from "react-icons/ai"
+
 const Content = ({data, loading}) => {
     let {experience, job, start, to, list} = data;
     let styling = {
@@ -17,7 +19,7 @@ const Content = ({data, loading}) => {
             </div>
             <section className="operation" style={loading ? styling : normal}>
                 {
-                    list.map(item => <p key={item.id}> {item.text}</p>)
+                    list.map(item => <p key={item.id}><AiFillBug /> {item.text}</p>)
                 }
             </section>
             <button style={loading ? styling : normal}>More Info</button>
