@@ -20,8 +20,8 @@ const Sidebar = ({data, changeTab}) => {
                 style={item.show ? paint : noPaint} 
                 type="button" 
                 className="btn">
-                    <AiFillCheckCircle />
-               {item.experience}
+                <AiFillCheckCircle />
+                {item.experience}
             </button>
         )   
     })
