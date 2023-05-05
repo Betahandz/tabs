@@ -1,3 +1,4 @@
+import { AiFillCheckCircle } from "react-icons/ai";
 const Sidebar = ({data, changeTab}) => {
     let paint = {
         backgroundColor: "var(--dark)",
@@ -19,6 +20,7 @@ const Sidebar = ({data, changeTab}) => {
                 style={item.show ? paint : noPaint} 
                 type="button" 
                 className="btn">
+                    <AiFillCheckCircle />
                {item.experience}
             </button>
         )   
